@@ -19,13 +19,12 @@ def fetch_file(path):
     except:
             return jsonify(error="Unknown error"), 500
 
-# IPFS_HEALTH_CHECK_PATH = os.getenv('IPFS_HEALTH_CHECK_PATH')
+IPFS_HEALTH_CHECK_PATH = os.getenv('IPFS_HEALTH_CHECK_PATH')
 
 @application.route('/health-check', methods=['GET'])
 @application.route('/', methods=['GET'])
 def health_check():
-    # return fetch_file(IPFS_HEALTH_CHECK_PATH)
-    return jsonify()
+    return fetch_file(IPFS_HEALTH_CHECK_PATH)
 
 @application.route('/add', methods=['POST'])
 def add():
